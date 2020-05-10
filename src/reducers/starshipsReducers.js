@@ -15,6 +15,8 @@ export const starshipReducer = (starship = null, action) => {
     switch (action.type) {
         case 'FETCH_STARSHIP':
             return action.payload.starship;
+        case 'EMPTY_STARSHIP':
+            return null;
         default:
             return starship;
     }

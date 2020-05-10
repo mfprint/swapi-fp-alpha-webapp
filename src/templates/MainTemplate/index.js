@@ -7,7 +7,6 @@ class MainTemplate extends Component {
             <div className='main-template'>
                 <div className='header'>
                     <h1>swapi implementation</h1>
-                    <h2>for fp-alpha recruitment</h2>
                 </div>
                 <div className='content'>
                     {this.props.children}

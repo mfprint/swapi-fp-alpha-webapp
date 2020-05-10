@@ -4,15 +4,27 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import BreadCrumbs from '../BreadCrumbs';
 import { setFilm } from '../../actions/filmsActions';
-import { fetchStarship } from '../../actions/starshipsActions';
+import { fetchStarship, verifyStarshipModification, fetchStarshipById, emptyStarship } from '../../actions/starshipsActions';
+import StarshipForm from '../StarshipForm';
 
 class StarshipView extends Component {
     componentDidMount = () => {
         var { starshipModel } = this.props.match.params;
-        this.props.fetchStarship(starshipModel);
+        this.props.emptyStarship();
+        
         if (this.props.filmsList?.length > 0) {
             this.loadFilm();
         }
+
+        this.props.verifyStarshipModification(starshipModel)
+            .then(id => {
+                if (id !== -1) {
+                    this.props.fetchStarshipById(id);
+                }
+                else {
+                    this.props.fetchStarship(starshipModel);
+                }
+            });
     }
 
     loadFilm = () => {
@@ -34,6 +46,7 @@ class StarshipView extends Component {
                     <Link className='return-link' to={`/film/${this.props.film?.title}`}>{this.props.film?.title}</Link>
                     <h2>{this.props.starship?.name}</h2>
                 </BreadCrumbs>
+                <StarshipForm />
             </div>
         )
     }
@@ -47,4 +60,7 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { setFilm, fetchStarship })(StarshipView);
+export default connect(mapStateToProps, {
+    setFilm, fetchStarship, verifyStarshipModification,
+    fetchStarshipById, emptyStarship
+})(StarshipView);
