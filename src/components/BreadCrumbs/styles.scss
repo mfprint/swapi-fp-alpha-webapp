@@ -1,10 +1,12 @@
 .bread-crumbs {
-    display: flex;
+    display: block;
     color: white;
 
     > * {
         font-size: 1.2em;
         font-weight: 700;
+        display: inline-block;
+        line-height: 180%;
     }
 
     a {

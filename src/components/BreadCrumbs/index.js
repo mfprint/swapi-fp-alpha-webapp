@@ -5,7 +5,8 @@ class BreadCrumbs extends Component {
     render = () => {
         return (
             <div className='bread-crumbs'>
-                {this.props.children.map(element => {
+                {!(this.props.children instanceof Array) && this.props.children}
+                {this.props.children instanceof Array && this.props.children.map(element => {
                     return (
                         <React.Fragment>
                             {element}

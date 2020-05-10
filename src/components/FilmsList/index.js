@@ -8,9 +8,11 @@ const FilmItem = (props) => {
         <div className='film-item'>
             <div className='film-title'>{props.title}</div>
             <div className='film-director'>{props.director}</div>
-            <Link className='film-spaceships' to={`/film/${props.title}`}>
-                Spaceships
-            </Link>
+            <div className='film-starships'>
+                <Link className='film-starships-btn' to={`/film/${props.title}`}>
+                    Starships
+                </Link>
+            </div>
         </div>
     )
 }

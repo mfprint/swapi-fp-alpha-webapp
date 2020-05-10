@@ -29,15 +29,40 @@
         display: flex;
     }
 
-    button {
-        display: block;
-        border: none;
-        padding: 10px;
-        background-color: white;
-        border-radius: 5px;
-        font-size: 1em;
-        cursor: pointer;
-        color: gray;
-        outline: none;
+    
+    .save-btn-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        
+        .save-btn {
+            display: block;
+            border: none;
+            padding: 20px 30px;
+            background-color: white;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            color: gray;
+            outline: none;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .input-field {
+            flex: 0 0 100%;
+
+            input {
+                font-size: 1em;
+            }
+
+            p {
+                font-size: 0.8em;
+            }
+        }
+
+        .multi-field {
+            flex-wrap: wrap;
+        }
     }
 }
