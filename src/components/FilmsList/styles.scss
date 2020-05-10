@@ -1,0 +1,41 @@
+.films-list {
+    .film-item {
+        display: grid;
+        grid-template-areas: "title director spaceships";
+        grid-template-columns: 1fr 1fr auto;
+        background-color: rgba(255, 255, 255, 0.3);
+        color: #ffffff;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        text-decoration: none;
+        border: 2px solid #ffffff;
+        transition-duration: 0.4s;
+
+        .film-title {
+            grid-area: title;
+            display: flex;
+            align-items: center;
+        }
+
+        .film-director {
+            grid-area: director;
+            display: flex;
+            align-items: center;
+        }
+
+        .film-spaceships {
+            display: block;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #74133A;
+            padding: 8px 10px;
+            border-radius: 5px;
+        }
+
+        &:hover {
+            color: #FFEB01;
+            border: 2px solid #FFEB01;
+        }
+    }
+}

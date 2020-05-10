@@ -1,0 +1,25 @@
+.bread-crumbs {
+    display: flex;
+    color: white;
+
+    > * {
+        font-size: 1.2em;
+        font-weight: 700;
+    }
+
+    a {
+        color: #FFEB01;
+    }
+
+    .pointer {
+        &::after {
+            content: '>';
+            margin: 0 10px;
+            color: white;
+        }
+
+        &:last-child {
+            display: none;
+        }
+    }
+}
