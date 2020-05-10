@@ -1,0 +1,18 @@
+.starships-list {
+    .starship-item {
+        display: block;
+        background-color: rgba(255, 255, 255, 0.3);
+        color: #ffffff;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        text-decoration: none;
+        border: 2px solid #ffffff;
+        transition-duration: 0.4s;
+
+        &:hover {
+            color: #FFEB01;
+            border: 2px solid #FFEB01;
+        }
+    }
+}

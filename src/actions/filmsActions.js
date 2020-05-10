@@ -1,5 +1,5 @@
 import swapi from "../APIs/swAPI";
-import { fetchStarship } from "./starshipsActions";
+import { emptyStarshipsList } from "./starshipsActions";
 
 export const fetchFilmsList = () => {
     return async (dispatch, getState) => {
@@ -22,18 +22,23 @@ export const fetchFilmsList = () => {
 
 export const setFilm = (filmTitle) => {
     return async (dispatch, getState) => {
-        var { filmsList } = getState();
-        var film = filmsList.find(film => film.title === filmTitle) || null;
-
-        dispatch({
-            type: 'SET_FILM',
-            payload: {
-                film
-            }
-        });
-
-        for (var starship of film.starships) {
-            dispatch(fetchStarship(starship));
+        try {
+            var { filmsList } = getState();
+            var film = filmsList.find(film => film.title === filmTitle) || null;
+    
+            dispatch({
+                type: 'SET_FILM',
+                payload: {
+                    film
+                }
+            });
+    
+            dispatch(emptyStarshipsList());
         }
+        catch (e) {
+            console.log(e);
+        }
+
+        return Promise.resolve();
     }
 }

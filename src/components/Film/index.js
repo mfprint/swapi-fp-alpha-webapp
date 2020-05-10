@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import './styles.scss';
 import { connect } from 'react-redux';
 import { setFilm } from '../../actions/filmsActions';
+import { fetchStarshipsList } from '../../actions/starshipsActions';
+import StarshipsList from '../StarshipsList';
+import { Link } from 'react-router-dom';
+import BreadCrumbs from '../BreadCrumbs';
 
 class FilmView extends Component {
     componentDidMount = () => {
@@ -12,7 +16,9 @@ class FilmView extends Component {
 
     loadFilm = () => {
         var { filmTitle } = this.props.match.params;
-        this.props.setFilm(filmTitle);
+        this.props.setFilm(filmTitle).then(() => {
+            this.props.fetchStarshipsList();
+        });
     }
 
     componentDidUpdate = (prevProps) => {
@@ -23,8 +29,12 @@ class FilmView extends Component {
 
     render = () => {
         return (
-            <div>
-                {this.props.film?.title}
+            <div className='film-container'>
+                <BreadCrumbs>
+                    <Link className='return-link' to='/'>Films</Link>
+                    <h2>{this.props.film?.title}</h2>
+                </BreadCrumbs>
+                <StarshipsList />
             </div>
         )
     }
@@ -37,4 +47,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { setFilm })(FilmView);
+export default connect(mapStateToProps, { setFilm, fetchStarshipsList })(FilmView);

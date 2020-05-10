@@ -20,7 +20,7 @@ class App extends Component {
                     <Switch>
                         <Route exact path='/' component={HomeView} />
                         <Route exact path='/film/:filmTitle' component={FilmView} />
-                        <Route exact path='/starship/:starshipId' component={StarshipView} />
+                        <Route exact path='/film/:filmTitle/starship/:starshipModel' component={StarshipView} />
                     </Switch>
                 </MainTemplate>
             </HashRouter>
