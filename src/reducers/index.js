@@ -1,6 +1,9 @@
 import { combineReducers } from 'redux';
-import { filmsListReducer } from './filmsReducers';
+import { filmsListReducer, filmReducer } from './filmsReducers';
+import { starshipsListReducer } from './starshipsReducers';
 
 export default combineReducers({
-    filmsList: filmsListReducer
+    filmsList: filmsListReducer,
+    film: filmReducer,
+    starshipsList: starshipsListReducer
 });

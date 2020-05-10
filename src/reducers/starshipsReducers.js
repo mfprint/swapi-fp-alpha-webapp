@@ -1,4 +1,4 @@
-export default starshipsListReducer = (starshipsList = [], action) => {
+export const starshipsListReducer = (starshipsList = [], action) => {
     switch (action.type) {
         case 'FETCH_STARSHIP':
             var _starshipsList = [...starshipsList];

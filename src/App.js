@@ -1,22 +1,31 @@
 import React, { Component } from 'react';
 import './App.scss';
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import HomeView from './views/HomeView';
-import FilmView from './views/FilmView';
-import StarshipView from './views/StarshipView';
+import HomeView from './components/Home';
+import FilmView from './components/Film';
+import StarshipView from './components/Starship';
+import MainTemplate from './templates/MainTemplate';
+import { connect } from 'react-redux';
+import { fetchFilmsList } from './actions/filmsActions';
 
 class App extends Component {
+    componentDidMount = () => {
+        this.props.fetchFilmsList();
+    }
+
     render = () => {
         return (
             <HashRouter>
-                <Switch>
-                    <Route exact path='/' component={HomeView} />
-                    <Route exact path='/film/:filmTitle' component={FilmView} />
-                    <Route exact path='/starship/:starshipId' component={StarshipView} />
-                </Switch>
+                <MainTemplate>
+                    <Switch>
+                        <Route exact path='/' component={HomeView} />
+                        <Route exact path='/film/:filmTitle' component={FilmView} />
+                        <Route exact path='/starship/:starshipId' component={StarshipView} />
+                    </Switch>
+                </MainTemplate>
             </HashRouter>
         )
     }
 }
 
-export default App;
+export default connect(null, { fetchFilmsList })(App);

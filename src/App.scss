@@ -1,5 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap');
+
+@font-face {
+    font-family: 'Star Jedi';
+    src: url(/fonts/starjedi/Starjedi.ttf);
+    font-weight: 400;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
 html {
-  background-color: black;
-  background-image: url(/assets/background.webp);
-  background-size: cover;
+    min-height: 100%;
+    background-color: black;
+    background-image: url(/assets/background3.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }

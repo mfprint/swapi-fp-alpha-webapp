@@ -6,3 +6,12 @@ export const filmsListReducer = (filmsList = [], action) => {
             return filmsList;
     }
 }
+
+export const filmReducer = (film = null, action) => {
+    switch (action.type) {
+        case 'SET_FILM':
+            return action.payload.film;
+        default:
+            return film;
+    }
+}
