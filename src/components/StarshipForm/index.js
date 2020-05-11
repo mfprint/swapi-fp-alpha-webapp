@@ -39,7 +39,7 @@ class StarshipForm extends Component {
 
     saveBtn_Click = () => {
         var payload = {...this.state.starship};
-        payload.originalModel = this.props.starship?.model;
+        payload.originalModel = this.props.starship?.originalModel;
 
         this.props.saveStarship(payload)
             .then(() => {
@@ -58,7 +58,6 @@ class StarshipForm extends Component {
                     />
                     <InputField
                         name='Model (not editable)'
-                        disabled
                         value={this.state.starship?.model}
                         onChage={this.inputField_Change('model')}
                     />
