@@ -125,7 +125,9 @@ class StarshipForm extends Component {
                             onChage={this.inputField_Change('consumables')}
                         />
                     </div>
-                    <button className='save-btn' onClick={this.saveBtn_Click}>Save Changes</button>
+                    <div className='save-btn-container'>
+                        <button className='save-btn' onClick={this.saveBtn_Click}>Save Changes</button>
+                    </div>
                 </form>
             </div>
         )

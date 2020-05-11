@@ -8,6 +8,9 @@ class HomeView extends Component {
     render = () => {
         return (
             <div className='home-container'>
+                <BreadCrumbs>
+                    <h2>Films</h2>
+                </BreadCrumbs>
                 <FilmsList />
             </div>
         )

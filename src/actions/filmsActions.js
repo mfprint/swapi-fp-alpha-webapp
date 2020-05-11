@@ -5,7 +5,7 @@ export const fetchFilmsList = () => {
     return async (dispatch, getState) => {
         try {
             var response = await swapi.get('/films/');
-            console.log(response.data);
+            // console.log(response.data);
 
             dispatch({
                 type: 'FETCH_FILMS_LIST',
