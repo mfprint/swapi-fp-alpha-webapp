@@ -29,11 +29,13 @@ export const fetchStarship = (starshipModel) => {
     return async (dispatch, getState) => {
         try {
             var response = await swAPI.get(`/starships/?search=${starshipModel}`);
+            var starship = response.data.results[0];
+            starship.originalModel = starship.model;
     
             dispatch({
                 type: 'FETCH_STARSHIP',
                 payload: {
-                    starship: response.data.results[0]
+                    starship
                 }
             });
         }
